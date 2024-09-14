@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class Regex
 {
     public void validatePincode() {
-        String pincode="A400088";
+        String pincode="400088B";
         String regex="^[1-9][0-9]{5}$";
         boolean answer = Pattern.matches(regex,pincode);
         if (answer) {
