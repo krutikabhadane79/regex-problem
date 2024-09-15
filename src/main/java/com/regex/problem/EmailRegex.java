@@ -16,13 +16,14 @@ public class EmailRegex {
         emails.add("abc@1.com");
         emails.add("abc@gmail.com.com");
         emails.add("abc+100@gmail.com");
+
         String regex="[a-zA-Z0-9_.]*[-]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+";
         Pattern pattern=Pattern.compile(regex);
         for(int i=0;i<emails.size();i++){
             Matcher matcher=pattern.matcher(emails.get(i));
             System.out.println(emails.get(i)+" --> Valid");
         }
-           }
+    }
     public static void main( String[] args )
     {
         EmailRegex regex = new EmailRegex();
