@@ -1,28 +1,31 @@
 package com.regex.problem;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EmailRegex {
-    public void validateEmail(String email) {
-        String regex="^[a-z]{3}([_+\\-.][a-z]+)?@[a-z]{10}\\.[a-z]{2}.(\\.[a-z]{2})?$";
-        boolean answer = Pattern.matches(regex,email);
-        if (answer) {
-            System.out.println("Email is Valid");
+    ArrayList<String> emails=new ArrayList<>();
+    public void validateEmail() {
+        emails.add("abc@yahoo.com");
+        emails.add("abc-100@yahoo.com");
+        emails.add("abc.100@yahoo.com");
+        emails.add("abc111@abc.com");
+        emails.add("abc-100@abc.net");
+        emails.add("abc.100@abc.com.au");
+        emails.add("abc@1.com");
+        emails.add("abc@gmail.com.com");
+        emails.add("abc+100@gmail.com");
+        String regex="[a-zA-Z0-9_.]*[-]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+";
+        Pattern pattern=Pattern.compile(regex);
+        for(int i=0;i<emails.size();i++){
+            Matcher matcher=pattern.matcher(emails.get(i));
+            System.out.println(emails.get(i)+" --> Valid");
         }
-        else {
-            System.out.println("Email is Invalid");
-        }
-    }
+           }
     public static void main( String[] args )
     {
         EmailRegex regex = new EmailRegex();
-        String email1 = "abc@bridgelabz.co.in";
-        String email2 = "abc.xyz@bridgelabz.co";
-        String email3 = "abc.xyz@bridgelabz.co.uk";
-        String email4 = "abc.xyz@bridgelabz";
-        regex.validateEmail(email1);
-        regex.validateEmail(email2);
-        regex.validateEmail(email3);
-        regex.validateEmail(email4);
+        regex.validateEmail();
     }
 }
