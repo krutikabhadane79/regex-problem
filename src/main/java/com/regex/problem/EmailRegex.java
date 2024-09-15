@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class EmailRegex {
     public void validateEmail(String email) {
-        String regex="^[a-z]{3}.*$";
+        String regex="^[a-z]{3}\\.?[a-z]*@[a-z]{10}.*$";
         boolean answer = Pattern.matches(regex,email);
         if (answer) {
             System.out.println("Email is Valid");
